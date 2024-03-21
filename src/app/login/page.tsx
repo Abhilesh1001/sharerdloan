@@ -16,9 +16,9 @@ const Page = () => {
                  const res = await handleLogin(formData)
                  console.log(res)
                 ref?.current?.reset()
-                if(res.status===200){
-                    router.push('/')
-                }
+                // if(res.status===200){
+                //     router.push('/')
+                // }
             }}          
             >
                 <label htmlFor="email" className='block'>Email</label>

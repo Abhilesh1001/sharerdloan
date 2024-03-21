@@ -15,37 +15,37 @@ export async function handleLogin(formData: FormData) {
     try{
 
         const response = await axios.post(`${baseurl}cus/authlogin/`,rawFormData)
-    cookies().set({
-        name: "access",
-        value: response.data.token.access,
-        httpOnly: true,
-        path: '/',
-      })
-    cookies().set({
-        name: "refresh",
-        value: response.data.token.refresh,
-        httpOnly: true,
-        path: '/',
-      })
-    console.log(response)
-    // mutate data
-    // revalidate cache
-    const decoded:any = jwtDecode(response.data.token.access);
-    console.log(decoded)
-    cookies().set({
-        name: "user",
-        value: decoded.name,
-        httpOnly: true,
-        path: '/',
-      })
+    // cookies().set({
+    //     name: "access",
+    //     value: response.data.token.access,
+    //     httpOnly: true,
+    //     path: '/',
+    //   })
+    // cookies().set({
+    //     name: "refresh",
+    //     value: response.data.token.refresh,
+    //     httpOnly: true,
+    //     path: '/',
+    //   })
+    // console.log(response)
+    // // mutate data
+    // // revalidate cache
+    // const decoded:any = jwtDecode(response.data.token.access);
+    // console.log(decoded)
+    // cookies().set({
+    //     name: "user",
+    //     value: decoded.name,
+    //     httpOnly: true,
+    //     path: '/',
+    //   })
 
 
     return response.data
 
     }catch(error:any){
-        console.log('..************....')
-        console.log(error.response.data)
-        return error.response.data
+        // console.log('..************....')
+        // console.log(error.response.data)
+        // return error.response.data
     }
     
 
@@ -53,31 +53,31 @@ export async function handleLogin(formData: FormData) {
 }
 
 
-export async function handleSignup(formData: FormData) {
-    'use server'
+// export async function handleSignup(formData: FormData) {
+//     'use server'
 
-    const rawFormData = {
-        name : formData.get('name'),
-        email: formData.get('email'),
-        checkbox : formData.get('checkbox')!=='on'?true:false,
-        password: formData.get('password'),
-        password2 : formData.get('password2')
-    }
-    console.log(rawFormData)
+//     const rawFormData = {
+//         name : formData.get('name'),
+//         email: formData.get('email'),
+//         checkbox : formData.get('checkbox')!=='on'?true:false,
+//         password: formData.get('password'),
+//         password2 : formData.get('password2')
+//     }
+//     console.log(rawFormData)
 
 
-    try{
+//     try{
 
-        const response = await axios.post(`${baseurl}}cus/authreg/`,rawFormData)
+//         const response = await axios.post(`${baseurl}}cus/authreg/`,rawFormData)
     
-    return response.data
+//     return response.data
 
-    }catch(error:any){
-        console.log(error)
+//     }catch(error:any){
+//         console.log(error)
     
-    }
-    // mutate data
-    // revalidate cache
-}
+//     }
+//     // mutate data
+//     // revalidate cache
+// }
 
 
