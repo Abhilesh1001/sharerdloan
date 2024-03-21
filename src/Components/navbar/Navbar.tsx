@@ -8,14 +8,14 @@ const Navbar = () => {
 
   const user :any = cookies().get('user')!==null && cookies().get('user') 
 
-  async function handleLogout(){
-    'use server'
-      console.log('ok')
-      cookies().delete('access')
-      cookies().delete('refresh')
-      cookies().delete('user')
-      redirect(`/login`)
-  }
+  // async function handleLogout(){
+  //   'use server'
+  //     console.log('ok')
+  //     cookies().delete('access')
+  //     cookies().delete('refresh')
+  //     cookies().delete('user')
+  //     redirect(`/login`)
+  // }
 
   return (
     <div className="navbar bg-base-300 fixed top-0 w-full z-50">
@@ -44,9 +44,9 @@ const Navbar = () => {
       <div className="text-nowrap">
         {user && user.value}
       </div>
-      <form action={handleLogout}>
+      {/* <form action={handleLogout}>
           <ButtonLogout />
-      </form>
+      </form> */}
   </div>
 </div>
   )
