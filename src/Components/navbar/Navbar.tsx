@@ -8,7 +8,6 @@ const Navbar = () => {
 
   const user :any = cookies().get('user')!==null && cookies().get('user') 
 
-
   async function handleLogout(){
     'use server'
       console.log('ok')
@@ -17,8 +16,6 @@ const Navbar = () => {
       cookies().delete('user')
       redirect(`/login`)
   }
-
-
 
   return (
     <div className="navbar bg-base-300 fixed top-0 w-full z-50">
@@ -50,8 +47,6 @@ const Navbar = () => {
       <form action={handleLogout}>
           <ButtonLogout />
       </form>
-
-
   </div>
 </div>
   )
