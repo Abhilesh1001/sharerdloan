@@ -1,5 +1,5 @@
 'use client'
-// import { handleSignup } from '@/actiondata/logination'
+import { handleSignup } from '@/actiondata/logination'
 
 import React,{useRef} from 'react'
 import Button from '@/Components/button/Button'
@@ -10,7 +10,11 @@ const Page = () => {
 
   return (
     <div className='flex justify-center mt-20 min-h-screen'>
-            <form >
+            <form ref={ref} action={async formData=>{
+                const res = await handleSignup(formData)
+                ref.current.reset()
+                
+                }} >
                 <label htmlFor="email" className='block'>Name</label>
                 <input type="text" required name='name' placeholder="name" className="input input-bordered w-80 my-4" />
                 <label htmlFor="email" className='block'>Email</label>
