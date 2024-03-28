@@ -16,7 +16,6 @@ const Page = () => {
                  const res = await handleLogin(formData)
                  console.log(res)
                 ref?.current?.reset()
-              
             }}          
             >
                 <label htmlFor="email" className='block'>Email</label>
